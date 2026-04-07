@@ -1187,9 +1187,19 @@
 </body>
 </html>`);
         doc.close();
-        pipWindow.document.title = "♫ Lyrics";
 
-    // refreshing the dynamic background based on the current track
+        // Freezing window title
+        try {
+            Object.defineProperty(pipWindow.document, 'title', {
+                get: function() { return '♫ Lyrics'; },
+                set: function(val) { /* Ignoring any change */ },
+                configurable: false
+            });
+        } catch (e) {
+            pipWindow.document.title = "♫ Lyrics";
+        }
+
+    // Refreshing the dynamic background based on the current track
     const initialTrack = Spicetify.Player.data?.track;
         if (initialTrack?.album?.images?.length > 0) {
             const imageUrl = initialTrack.album.images[0].url;
