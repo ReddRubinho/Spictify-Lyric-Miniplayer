@@ -1004,7 +1004,7 @@
 
             pipWindow = window.open(
                 'about:blank',
-                'LyricsOverlayPiP',
+                '♫ Lyrics',
                 `width=${CONFIG.pipWidth},height=${CONFIG.pipHeight},left=${left},top=${top},resizable=yes,scrollbars=no,toolbar=no,menubar=no,location=no,status=no`
             );
 
