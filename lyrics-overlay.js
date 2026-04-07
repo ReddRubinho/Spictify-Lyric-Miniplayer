@@ -771,8 +771,8 @@
         .lyric.active {
             opacity: 1;
             color: var(--accent);
-            font-weight: 500;
-            transform: scale(1.02);
+            font-weight: 700;
+            transform: scale(1.1);
             text-shadow: 0 0 20px var(--text-glow);
         }
 
