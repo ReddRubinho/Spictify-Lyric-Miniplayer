@@ -1187,6 +1187,7 @@
 </body>
 </html>`);
         doc.close();
+        pipWindow.document.title = "♫ Lyrics";
 
     // refreshing the dynamic background based on the current track
     const initialTrack = Spicetify.Player.data?.track;
