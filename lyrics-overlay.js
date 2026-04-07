@@ -241,6 +241,8 @@
             height: 4px;
             cursor: ns-resize;
             flex-shrink: 0;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(12px);
         }
 
         .resize-handle:hover {
@@ -652,7 +654,6 @@
             gap: 4px;
             padding: 8px;
             background: ${t.controlsBg};
-            backdrop-filter: blur(8px);
             flex-shrink: 0;
             -webkit-app-region: no-drag;
             app-region: no-drag;
@@ -825,8 +826,6 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             flex-shrink: 0;
             padding: 6px 10px;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             -webkit-app-region: no-drag;
             app-region: no-drag;
         }
