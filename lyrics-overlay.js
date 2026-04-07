@@ -26,8 +26,8 @@
             accent: '#ffffff',
             accentHover: '#f0f0f0',
             headerBg: 'rgba(0, 0, 0, 0.2)',
-            controlsBg: 'rgba(0, 0, 0, 0.1)',
-            footerBg: 'rgba(0, 0, 0, 0.2)',
+            controlsBg: 'rgba(0, 0, 0, 0)',
+            footerBg: 'rgba(0, 0, 0, 0)',
             textGlow: 'rgba(255, 255, 255, 0.3)',
         },
         spotify: {
@@ -241,7 +241,8 @@
             height: 4px;
             cursor: ns-resize;
             flex-shrink: 0;
-            backdrop-filter: blur(10px);
+            background: ${t.headerBg}; 
+            backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
 
