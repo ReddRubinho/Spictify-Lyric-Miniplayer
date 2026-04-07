@@ -1003,7 +1003,7 @@
             const top = 30;
 
             pipWindow = window.open(
-                'about:blank',
+                `javascript:document.write('<html><head><title>♫ Lyrics</title></head><body></body></html>');document.close();`,
                 'LyricsOverlayPiP',
                 `width=${CONFIG.pipWidth},height=${CONFIG.pipHeight},left=${left},top=${top},resizable=yes,scrollbars=no,toolbar=no,menubar=no,location=no,status=no`
             );
