@@ -28,7 +28,7 @@
             headerBg: 'rgba(0, 0, 0, 0.2)',
             controlsBg: 'rgba(0, 0, 0, 0)',
             footerBg: 'rgba(0, 0, 0, 0)',
-            textGlow: 'rgba(255, 255, 255, 0.3)',
+            textGlow: 'rgba(255, 255, 255, 0.6)',
         },
         spotify: {
             name: 'Spotify',
