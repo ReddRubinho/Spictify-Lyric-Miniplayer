@@ -757,7 +757,7 @@
 
         .lyric {
             padding: 5px 0;
-            opacity: 0.3;
+            opacity: 0.5;
             transition: all 0.2s ease;
             cursor: pointer;
             line-height: 1.35;
@@ -765,7 +765,7 @@
         }
 
         .lyric:hover {
-            opacity: 0.5;
+            opacity: 0.7;
         }
 
         .lyric.active {
@@ -777,7 +777,7 @@
         }
 
         .lyric.past {
-            opacity: 0.4;
+            opacity: 0.5;
         }
 
         /* No Lyrics / Loading */
@@ -800,11 +800,12 @@
         .status-msg .text {
             font-size: 15px;
             font-weight: 500;
+            opacity: 0.2;
         }
 
         .status-msg .subtext {
             font-size: 12px;
-            opacity: 0.6;
+            opacity: 0.2;
             margin-top: 4px;
         }
 
