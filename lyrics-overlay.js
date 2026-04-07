@@ -19,6 +19,17 @@
 
     // ==================== THEMES ====================
     const THEMES = {
+        album: {
+            name: 'album',
+            emoji: '📀',
+            bg: 'var(--dynamic-bg)',
+            accent: '#ffffff',
+            accentHover: '#f0f0f0',
+            headerBg: 'rgba(0, 0, 0, 0.2)',
+            controlsBg: 'rgba(0, 0, 0, 0.1)',
+            footerBg: 'rgba(0, 0, 0, 0.2)',
+            textGlow: 'rgba(255, 255, 255, 0.3)',
+        },
         spotify: {
             name: 'Spotify',
             emoji: '💚',
@@ -36,9 +47,9 @@
             bg: 'linear-gradient(160deg, #1a0a14 0%, #2d1f2b 40%, #1f0f1a 100%)',
             accent: '#ff69b4',
             accentHover: '#ff85c2',
-            headerBg: 'rgba(40, 10, 30, 0.6)',
+            header: 'rgba(40, 10, 30, 0.6)',
             controlsBg: 'rgba(40, 10, 30, 0.4)',
-            footerBg: 'rgba(40, 10, 30, 0.5)',
+            footer: 'rgba(40, 10, 30, 0.5)',
             textGlow: 'rgba(255, 105, 180, 0.4)',
         },
         kawaii: {
@@ -166,7 +177,7 @@
     let showLikeBtn = true;
     let showCloseBtn = true;
     let centerLyrics = true;
-    let currentTheme = 'spotify';
+    let currentTheme = 'album';
 
     // Load saved settings
     try {
@@ -216,9 +227,13 @@
         body {
             font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: ${t.bg};
+            background-size: cover;       
+            background-position: center;  
+            background-repeat: no-repeat;
             color: #ffffff;
             display: flex;
             flex-direction: column;
+            transition: background 0.5s ease-in-out;
         }
 
         /* Resize Handle at Top - Subtle */
@@ -245,6 +260,7 @@
             cursor: grab;
             user-select: none;
             -webkit-app-region: drag;
+            -webkit-backdrop-filter: blur(12px);
             app-region: drag;
         }
 
@@ -636,6 +652,7 @@
             gap: 4px;
             padding: 8px;
             background: ${t.controlsBg};
+            backdrop-filter: blur(8px);
             flex-shrink: 0;
             -webkit-app-region: no-drag;
             app-region: no-drag;
@@ -808,6 +825,8 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             flex-shrink: 0;
             padding: 6px 10px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             -webkit-app-region: no-drag;
             app-region: no-drag;
         }
@@ -1168,6 +1187,15 @@
 </html>`);
         doc.close();
 
+    // refreshing the dynamic background based on the current track
+    const initialTrack = Spicetify.Player.data?.track;
+        if (initialTrack?.album?.images?.length > 0) {
+            const imageUrl = initialTrack.album.images[0].url;
+            const dynamicBackground = `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("${imageUrl}")`;
+            doc.body.style.setProperty('--dynamic-bg', dynamicBackground);
+        }
+
+
         // Get elements
         const menuBtn = doc.getElementById('menuBtn');
         const settingsPanel = doc.getElementById('settingsPanel');
@@ -1456,6 +1484,16 @@
             currentTrackUri = track.uri;
             loadLyrics(track.uri);
             updatePipLikeState();
+
+            // Update dynamic background
+            if (track.album?.images?.length > 0) {
+            const imageUrl = track.album.images[0].url;
+            const dynamicBackground = `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("${imageUrl}")`;
+            
+                if (pipWindow && !pipWindow.closed) {
+                    pipWindow.document.body.style.setProperty('--dynamic-bg', dynamicBackground);
+                }
+            }
         }
     }
 
