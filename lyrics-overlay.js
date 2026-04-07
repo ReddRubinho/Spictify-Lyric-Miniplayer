@@ -47,9 +47,9 @@
             bg: 'linear-gradient(160deg, #1a0a14 0%, #2d1f2b 40%, #1f0f1a 100%)',
             accent: '#ff69b4',
             accentHover: '#ff85c2',
-            header: 'rgba(40, 10, 30, 0.6)',
+            headerBg: 'rgba(40, 10, 30, 0.6)',
             controlsBg: 'rgba(40, 10, 30, 0.4)',
-            footer: 'rgba(40, 10, 30, 0.5)',
+            footerBg: 'rgba(40, 10, 30, 0.5)',
             textGlow: 'rgba(255, 105, 180, 0.4)',
         },
         kawaii: {
